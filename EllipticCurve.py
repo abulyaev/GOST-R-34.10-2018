@@ -1,41 +1,38 @@
-{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fswiss\fcharset0 Cambria;}{\f1\froman\fcharset0 Times New Roman;}{\f2\fnil\fcharset0 Courier New;}}
-{\colortbl ;\red0\green0\blue0;}
-{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
-\pard\cf1\f0\fs20 import sys \par
-from collections import namedtuple \par
-from random import randint \par
-import os \par
-from codecs import getdecoder \par
-from codecs import getencoder \par
-import asn1 \par
-from sympy import invert \par
-from hashlib import sha256 \par
-\par
-Point = namedtuple("Point", "x y") \par
-EllipticCurve = namedtuple("EllipticCurve", "a b") \par
-Origin = None \par
-\par
-# Helper functions for bytes2long realization \par
-_hexdecoder = getdecoder("hex") \par
-_hexencoder = getencoder("hex") \par
-\par
-def hexenc(data): \par
-\i\tab """Encode hexadecimal \par
-\tab """ \par
-\i0\tab return _hexencoder(data)[0].decode("ascii") \par
-# End of helper functions of bytes2long realization\f1\fs28\par
-\cf0\f0\fs24\par
+import sys
+from collections import namedtuple
+from random import randint
+import os
+from codecs import getdecoder
+from codecs import getencoder
+import asn1
+from sympy import invert
+from hashlib import sha256
 
-\pard\pagebb\fs20 # Function to convert bytes to long number \par
-def bytes2long(raw): \par
-\tab\i """ Deserialize big-endian bytes into long number \par
-\tab\b :param \b0 bytes raw: binary string \par
-\tab\b :returns\b0 : deserialized long number \par
-\tab\b :rtype\b0 : int \par
-\tab """ \par
-\tab\i0 return int(hexenc(raw), 16) \par
-\par
-import math \par
+Point = namedtuple("Point", "x y")
+EllipticCurve = namedtuple("EllipticCurve", "a b")
+Origin = None
+
+# Helper functions for bytes2long realization
+_hexdecoder = getdecoder("hex") 
+_hexencoder = getencoder("hex") 
+
+def hexenc(data):
+  """Encode hexadecimal 
+  """ 
+  return _hexencoder(data)[0].decode("ascii") 
+# End of helper functions of bytes2long realization
+
+
+# Function to convert bytes to long number
+def bytes2long(raw):
+  """ Deserialize big-endian bytes into long number
+  :param \b0 bytes raw: binary string
+  :returns\b0 : deserialized long number
+  :rtype\b0 : int
+  """
+  return int(hexenc(raw), 16)
+
+import math 
 # Generate random number from 1 to r-1 \par
 # Und return only mutually prime number with r \par
 def rand(r): \par
@@ -317,4 +314,4 @@ def main(): \par
 if __name__ == '__main__': \par
 \tab main() \f2\fs22\par
 }
- 
+�
