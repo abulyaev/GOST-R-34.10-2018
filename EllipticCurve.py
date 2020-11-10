@@ -34,21 +34,20 @@ def bytes2long(raw):
 
 import math
 # Generate random number from 1 to r-1
-# Und return only mutually prime number with r
+# And return only mutually prime number with r
 def rand(r):
     while True:
         k = randint(1, r - 1)
         if math.gcd(k, r) == 1:
             return k
 
-# Let's init vars in global scope
+# Vars init
 p = q = d = 0
 Q = Origin
 point = Origin
 curve = Origin
 
-# Here is a function to multiply point to some number
-# From theory
+# A function to multiply point to number
 def multiply(point, x, a, p):
     if x == 0:
         return None
@@ -60,7 +59,7 @@ def multiply(point, x, a, p):
             result = add(result, point, a, p)
     return result
 
-# Points addition from theory
+# Points addition
 def add(point_a, point_b, a, p):
     if point_a is Origin:
         return point_b
